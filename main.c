@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <errno.h>
+#include <string.h>
 
 int main(int argc, char const *argv[]) {
   /*
@@ -13,11 +15,12 @@ int main(int argc, char const *argv[]) {
 
   FILE *fptr;
   char buffer[200];
+  const char filename[] = "quotes.txt";
 
-  fptr = fopen("quotes.txt", "r");
+  fptr = fopen(filename, "r");
   if (fptr == NULL) {
-    printf("Error opening file.\n");
-    return -1;
+    fprintf(stderr, "Error %d: %s\n", errno, strerror(errno));
+    exit(EXIT_FAILURE);
   }
 
   char c; int lines_count = 0;
@@ -26,7 +29,7 @@ int main(int argc, char const *argv[]) {
       lines_count++;
   }
 
-  fclose(fptr); fptr = fopen("quotes.txt", "r");
+  fclose(fptr); fptr = fopen(filename, "r");
   printf("Total number of lines are: %d\n", lines_count);
 
   int count = 0;
