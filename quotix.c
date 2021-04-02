@@ -14,3 +14,16 @@ void check_file(const char* filename) {
   }
 
 }
+
+int count_lines(const char* filename) {
+  FILE *fptr;
+  fptr = fopen(filename, "r");
+  char c; int count = 0;
+  while ((c = fgetc(fptr)) != EOF) {
+   if (c == '\n')
+      count++;
+  }
+  fclose(fptr);
+
+  return count;
+}

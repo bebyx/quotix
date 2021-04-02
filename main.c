@@ -18,17 +18,13 @@ int main(int argc, char const *argv[]) {
   FILE *fptr;
   char buffer[200];
   const char filename[] = "quotes.txt";
+  int lines_count;
 
   check_file(filename);
 
-  fptr = fopen(filename, "r");
-  char c; int lines_count = 0;
-  while ((c = fgetc(fptr)) != EOF) {
-   if (c == '\n')
-      lines_count++;
-  }
+  lines_count = count_lines(filename);
 
-  fclose(fptr); fptr = fopen(filename, "r");
+  fptr = fopen(filename, "r");
   printf("Total number of lines are: %d\n", lines_count);
 
   int count = 0;
