@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <errno.h>
 #include <string.h>
 #include "quotix.h"
@@ -26,4 +27,26 @@ int count_lines(const char* filename) {
   fclose(fptr);
 
   return count;
+}
+
+void print_random_quote(const char* filename, int lines_count) {
+  FILE *fptr;
+  fptr = fopen(filename, "r");
+  int count = 0, line_number;
+  char buffer[256];
+  
+  srand(time(0));
+  line_number = rand() % lines_count;
+  while (fgets(buffer, sizeof buffer, fptr) != NULL) {
+    if (count == line_number) {
+      printf("%s", buffer);
+      fclose(fptr);
+      exit(0);
+    }
+    else {
+      count++;
+    }
+  }
+
+  fclose(fptr);
 }
