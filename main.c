@@ -4,6 +4,8 @@
 #include <errno.h>
 #include <string.h>
 
+#include "quotix.h"
+
 int main(int argc, char const *argv[]) {
   /*
   open file with a quote per line
@@ -17,12 +19,9 @@ int main(int argc, char const *argv[]) {
   char buffer[200];
   const char filename[] = "quotes.txt";
 
-  fptr = fopen(filename, "r");
-  if (fptr == NULL) {
-    fprintf(stderr, "Error %d: %s\n", errno, strerror(errno));
-    exit(EXIT_FAILURE);
-  }
+  check_file(filename);
 
+  fptr = fopen(filename, "r");
   char c; int lines_count = 0;
   while ((c = fgetc(fptr)) != EOF) {
    if (c == '\n')
