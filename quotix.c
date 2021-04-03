@@ -29,13 +29,24 @@ int count_lines(const char* filename) {
   return count;
 }
 
+void seed_random(const char* iteration)
+{
+  if (strcmp(iteration, "second") == 0)
+    srand(time(0));
+  else if (strcmp(iteration, "minute") == 0)
+    srand(time(0)/60);
+  else if (strcmp(iteration, "hour") == 0)
+    srand(time(0)/60/60);
+  else if (strcmp(iteration, "hour") == 0)
+    srand(time(0)/60/60/24);
+}
+
 void print_random_quote(const char* filename, int lines_count) {
   FILE *fptr;
   fptr = fopen(filename, "r");
   int count = 0, line_number;
   char buffer[256];
-  
-  srand(time(0));
+
   line_number = rand() % lines_count;
   while (fgets(buffer, sizeof buffer, fptr) != NULL) {
     if (count == line_number) {
