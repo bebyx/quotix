@@ -8,7 +8,7 @@
 void check_file(const char* filename) {
   FILE *fptr;
   if ((fptr = fopen(filename, "r")) == NULL) {
-    fprintf(stderr, "Error %d: %s\n", errno, strerror(errno));
+    fprintf(stderr, "File error %d: %s — '%s'\n", errno, strerror(errno), filename);
     exit(EXIT_FAILURE);
   } else {
     fclose(fptr);
