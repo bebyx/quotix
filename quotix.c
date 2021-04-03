@@ -50,7 +50,7 @@ void print_random_quote(const char* filename, int lines_count) {
   line_number = rand() % lines_count;
   while (fgets(buffer, sizeof buffer, fptr) != NULL) {
     if (count == line_number) {
-      printf("%s", buffer);
+      fprintf(stdout, "%s", buffer);
       fclose(fptr);
       exit(0);
     }
