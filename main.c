@@ -9,7 +9,7 @@
 int main(int argc, char const *argv[])
 {
 
-  char filename[] = "quotes.txt";
+  char filename[256] = "quotes.txt";
   int lines_count;
   char iteration[] = "second";
 
