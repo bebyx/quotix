@@ -1,10 +1,100 @@
-sample one
-sample two
-sample three
-sample four
-sample five
-sample six
-sample seven
-sample eight
-sample nine
-sample ten
+Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features". — Doug McIlroy
+It's not that we don't dare do things because they are difficult; rather, they are difficult because we don't dare. — Lucius Annaeus Seneca
+Value your freedom or you will lose it, teaches history. 'Don't bother us with politics', respond those who don't want to learn. — Richard Stallman
+Intelligence is the ability to avoid doing work, yet getting the work done. — Linus Torvalds
+Software is like sex: it's better when it's free. — Linus Torvalds
+True friends stab you in the front. — Oscar Wilde
+Who, being loved, is poor? — Oscar Wilde
+The truth is rarely pure and never simple. — Oscar Wilde
+You can fool all the people some of the time, and some of the people all the time, but you cannot fool all the people all the time. — Abraham Lincoln
+Most folks are as happy as they make up their minds to be. — Abraham Lincoln
+Our greatest glory is not in never falling, but in rising every time we fall. — Confucius
+It does not matter how slowly you go as long as you do not stop. — Confucius
+A superior man is modest in his speech, but exceeds in his actions. — Confucius
+You cannot open a book without learning something. — Confucius
+Do not impose on others what you yourself do not desire. — Confucius
+Never give a sword to a man who can't dance. — Confucius
+The superior man understands what is right; the inferior man understands what will sell. — Confucius
+The strength of a nation derives from the integrity of the home. — Confucius
+The greatest minds are capable of the greatest vices as well as of the greatest virtues. — Rene Descartes
+Except our own thoughts, there is nothing absolutely in our power. — Rene Descartes
+It is not enough to have a good mind; the main thing is to use it well. — Rene Descartes
+The reading of all good books is like a conversation with the finest minds of past centuries. — Rene Descartes
+Each problem that I solved became a rule, which served afterwards to solve other problems. — Rene Descartes
+An optimist may see a light where there is none, but why must the pessimist always run to blow it out? — Rene Descartes
+Divide each difficulty into as many parts as is feasible and necessary to resolve it. — Rene Descartes
+I am indeed amazed when I consider how weak my mind is and how prone to error. — Rene Descartes
+We can only see a short distance ahead, but we can see plenty there that needs to be done. — Alan Turing
+Science is a differential equation. Religion is a boundary condition. — Alan Turing
+Innovation, creativity, and lunacy goes hand in hand. — Varg Vikernes
+Lead by example. Be better than those you despise. — Varg Vikernes
+Life is best when lived your way and not as a negation of what you don't like. — Varg Vikernes
+No man is free who is not master of himself. — Epictetus
+Only the educated are free. — Epictetus
+The real tragedy of the poor is the poverty of their aspirations. — Adam Smith
+Virtue is more to be feared than vice, because its excesses are not subject to the regulation of conscience. — Adam Smith
+Irresponsibility is part of the pleasure of all art; it is the part the schools cannot recognize. — James Joyce
+Mistakes are the portals of discovery. — James Joyce
+A man of genius makes no mistakes; his errors are volitional and are the portals of discovery. — James Joyce
+Quality is not an act, it is a habit. — Aristotle
+You will never do anything in this world without courage. It is the greatest quality of the mind next to honor. — Aristotle
+The energy of the mind is the essence of life. — Aristotle
+The law is reason, free from passion. — Aristotle
+No man ever steps in the same river twice, for it's not the same river and he's not the same man. — Heraclitus
+Much learning does not teach understanding. — Heraclitus
+There is nothing permanent except change. — Heraclitus
+A man's character is his fate. — Heraclitus
+Most people do not really want freedom, because freedom involves responsibility, and most people are frightened of responsibility. — Sigmund Freud
+The first human who hurled an insult instead of a stone was the founder of civilization. — Sigmund Freud
+Everywhere I go I find that a poet has been there before me. — Sigmund Freud
+Being entirely honest with oneself is a good exercise. — Sigmund Freud
+When a man cannot choose, he ceases to be a man. — Stanley Kubrick
+The screen is a magic medium. It has such power that it can retain interest as it conveys emotions and moods that no other art form can hope to tackle. — Stanley Kubrick
+There are few things more fundamentally encouraging and stimulating than seeing someone else die. — Stanley Kubrick
+Negativity is the enemy of creativity. — David Lynch
+Somehow, the French got this idea of the starving artist. Very romantic, except it's not so romantic for the starving artist. — David Lynch
+There is no truth. There is only perception. — Gustave Flaubert
+Our ignorance of history causes us to slander our own times. — Gustave Flaubert
+Success is a consequence and must not be a goal. — Gustave Flaubert
+If I have seen further than others, it is by standing upon the shoulders of giants. — Isaac Newton
+My powers are ordinary. Only my application brings me success. — Isaac Newton
+Tact is the art of making a point without making an enemy. — Isaac Newton
+Genius is patience. — Isaac Newton
+You will never be happy if you continue to search for what happiness consists of. You will never live if you are looking for the meaning of life. — Albert Camus
+Freedom is nothing but a chance to be better. — Albert Camus
+Patience is bitter, but its fruit is sweet. — Jean-Jacques Rousseau
+Insults are the arguments employed by those who are in the wrong. — Jean-Jacques Rousseau
+Gratitude is a duty which ought to be paid, but which none have a right to expect. — Jean-Jacques Rousseau
+Take the course opposite to custom and you will almost always do well. — Jean-Jacques Rousseau
+If you are lonely when you're alone, you are in bad company. — Jean-Paul Sartre
+The heart has its reasons of which reason knows nothing. — Blaise Pascal
+We cannot solve our problems with the same thinking we used when we created them. — Albert Einstein
+A person who never made a mistake never tried anything new. — Albert Einstein
+The whole of science is nothing more than a refinement of everyday thinking. — Albert Einstein
+Most people say that it is the intellect which makes a great scientist. They are wrong: it is character. — Albert Einstein
+It is difficult to free fools from the chains they revere. — Voltaire
+Only great minds can afford a simple style. — Stendhal
+If you're going through hell, keep going. — Winston Churchill
+We make a living by what we get, but we make a life by what we give. — Winston Churchill
+You have enemies? Good. That means you've stood up for something, sometime in your life. — Winston Churchill
+Violence is the last refuge of the incompetent. — Isaac Asimov
+I do not fear computers. I fear the lack of them. — Isaac Asimov
+Life is pleasant. Death is peaceful. It's the transition that's troublesome. — Isaac Asimov
+The most exciting phrase to hear in science, the one that heralds new discoveries, is not 'Eureka!' but 'That's funny...' — Isaac Asimov
+Cannibals prefer those who have no spines. — Stanislaw Lem
+You climb to reach the summit, but once there, discover that all roads lead down. — Stanislaw Lem
+Do not trust people. They are capable of greatness. — Stanislaw Lem
+An artist never works under ideal conditions. If they existed, his work wouldn't exist, for the artist doesn't live in a vacuum. — Andrei Tarkovsky
+Drama is life with the dull bits cut out. — Alfred Hitchcock
+Self-plagiarism is style. — Alfred Hitchcock
+Experience without theory is blind, but theory without experience is mere intellectual play. — Immanuel Kant
+Science is organized knowledge. Wisdom is organized life. — Immanuel Kant
+To be is to do. — Immanuel Kant
+It is not titles that honor men, but men that honor titles. — Niccolo Machiavelli
+Before all else, be armed. — Niccolo Machiavelli
+It's the job that's never started as takes longest to finish. — J. R. R. Tolkien
+Wherever the art of medicine is loved, there is also a love of humanity. — Hippocrates
+Well done is better than well said. — Benjamin Franklin
+Your mind will answer most questions if you learn to relax and wait for the answer. — William S. Burroughs
+We cannot change anything until we accept it. Condemnation does not liberate, it oppresses. — Carl Jung
+The word 'happy' would lose its meaning if it were not balanced by sadness. — Carl Jung
