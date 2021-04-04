@@ -26,6 +26,11 @@ Like this bash loop:
 ```bash
 while true; do ./qtx -f q_file -i %M; sleep 1; done
 ```
+Native conky command:
+
+```bash
+${texeci 600 /home/user/.local/bin/qtx -f /home/user/.local/etc/quotix/quotes.txt -i %M }
+```
 
 Also you can use the program for whatever random quote case, e.g., web app:
 pipe to a file and then read from the file to take your random quote to the web page.
