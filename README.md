@@ -2,6 +2,22 @@
 
 Quotix is a random quote C program. It runs through a plain text file (LF, of course, named `quotes.txt` by default) and prints out a random line.
 
+## Installation
+
+To compile and install on GNU/Linux:
+
+```bash
+make && sudo make install
+```
+
+To uninstall:
+
+```bash
+sudo make uninstall
+```
+
+And delete a source folder.
+
 ## Flags
 
 * `-f` or `--file` to use the custom name for quote source file
