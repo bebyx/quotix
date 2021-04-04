@@ -61,9 +61,9 @@ int main(int argc, char const *argv[])
                       "Quotix (qtx) is a random quote C program. It runs through a plain text file (named quotes.txt by default) and prints out a random line.",
                       "Use -f or --file flag to define source file name with quotes.",
                       "Use -i to change the time iteration (each second by default):",
-                      "- \%M or 'minute'",
-                      "- \%H or 'hour'",
-                      "- \%d or 'day'");
+                      "- %M or 'minute'",
+                      "- %H or 'hour'",
+                      "- %d or 'day'");
       exit(0);
     }
     else
