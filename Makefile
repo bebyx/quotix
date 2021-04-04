@@ -2,12 +2,12 @@ all:
 	gcc *.c -o qtx
 
 install:
-	cp ./qtx /usr/local/bin/qtx
+	cp ./qtx /usr/bin/qtx
 	mkdir /etc/quotix/
 	cp ./quotes.txt /etc/quotix/quotes.txt
 
 uninstall:
-	rm /usr/local/bin/qtx
+	rm /usr/bin/qtx
 	cd /etc/ && rm -r ./quotix/
 
 clean:
