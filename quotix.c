@@ -24,8 +24,9 @@ int count_lines(const char* filename)
   FILE *fptr;
   fptr = fopen(filename, "r");
   char c; int count = 0;
-  while ((c = fgetc(fptr)) != EOF)
+  while ((fgetc(fptr)) != EOF)
   {
+   c = fgetc(fptr);
    if (c == '\n')
       count++;
   }
