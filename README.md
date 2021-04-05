@@ -68,3 +68,35 @@ pipe to a file and then read from the file to take your random quote to the web 
 ```bash
 qtx > quote-of-the-day.html
 ```
+
+## Difference to Fortune
+
+While **Fortune** is time proven random quote program, **Quotix** is built independently with other philosophy in mind.
+
+### Ideological:
+
+1. an idea behind: straight aphorism instead of fortune cookies; it's reflected in the names
+2. one-liner — minimalist by design; there shan't be recipes or verse!
+3. GPL vs. BSD license (see [cuck licenses article](https://lukesmith.xyz/articles/cucklicenses) by [@lukesmithxyz](https://github.com/lukesmithxyz))
+
+### Technical:
+
+1. no format complications — just plain text one-liners (256 character per line limit so far)
+2. has built-in time iteration — matters when need to print out frequently but change quotes with slower pace
+3. no regex handling, no multifile handling and other fancy stuff — it's not the goal for Quotix
+4. shorter command by default (`qtx`)
+5. at the moment, 8,188 B (1 package) vs. 2,154 kB (3 packages) — checked on Debian **apt**
+
+### Sum-up
+
+That said, Quotix is not better or worse, it's just different.
+
+The main point is diversity as the core idea of free software: alternatives never harm, but enrich free software users and developers.
+
+Think of **sudo** and **doas**, for example.
+
+Even in non-free world there's Twitter and there's Facebook.
+
+Use Fortune or use Quotix, choose what suits you best.
+
+Or (re)write your own random quote program as you see it. :)
