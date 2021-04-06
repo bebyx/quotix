@@ -52,7 +52,7 @@ void print_random_quote(const char* filename, int lines_count)
   FILE *fptr;
   fptr = fopen(filename, "r");
   int count = 0, line_number;
-  char buffer[256];
+  char buffer[1025];
 
   line_number = rand() % lines_count;
   while (fgets(buffer, sizeof buffer, fptr) != NULL)
