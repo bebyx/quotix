@@ -9,7 +9,7 @@ Quotix is a **random quote** C program. It runs through a plain text file (LF, o
 Install Quotix on Debian-based system with the `deb` release.
 
 ```bash
-wget https://github.com/bebyx/quotix/releases/download/v0.1.0-beta/qtx_0.1.0_x86_64.deb && sudo apt install ./qtx_0.1.0_x86_64.deb
+wget https://github.com/bebyx/quotix/releases/download/v0.1.1-beta/qtx_0.1.1_x86_64.deb && sudo apt install ./qtx_0.1.1_x86_64.deb
 ```
 
 To uninstall:
