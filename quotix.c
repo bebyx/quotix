@@ -23,13 +23,25 @@ int count_lines(const char* filename)
 {
   FILE *fptr;
   fptr = fopen(filename, "r");
-  char c; int count = 0;
-  while ((fgetc(fptr)) != EOF)
+  char c; int count = 0, c_count = 0;
   while ((c = fgetc(fptr)) != EOF)
   {
    if (c == '\n')
+   {
       count++;
+      if(c_count > 1023)
+      {
+        fprintf(stderr, "Error: Line's too long: %d\nExiting...\n", count);
+        exit(EXIT_FAILURE);
+      }
+      c_count = 0;
+   }
+   else
+   {
+     c_count++;
+   }
   }
+
   fclose(fptr);
 
   return count;
@@ -52,10 +64,10 @@ void print_random_quote(const char* filename, int lines_count)
   FILE *fptr;
   fptr = fopen(filename, "r");
   int count = 0, line_number;
-  char buffer[1025];
+  char buffer[1025] = "";
 
   line_number = rand() % lines_count;
-  while (fgets(buffer, sizeof buffer, fptr) != NULL)
+  while (fgets(buffer, sizeof(buffer), fptr) != NULL)
   {
     if (count == line_number)
     {
