@@ -81,11 +81,11 @@ While **Fortune** is time proven random quote program, **Quotix** is built indep
 
 ### Technical:
 
-1. no format complications — just plain text one-liners (256 character per line limit so far)
+1. no format complications — just plain text one-liners (1024 character per line limit so far)
 2. has built-in time iteration — matters when need to print out frequently but change quotes with slower pace
 3. no regex handling, no multifile handling and other fancy stuff — it's not the goal for Quotix
 4. shorter command by default (`qtx`)
-5. at the moment, 8,188 B (1 package) vs. 2,154 kB (3 packages) — checked on Debian **apt**
+5. at the moment, 8,204 B (1 package) vs. 2,154 kB (3 packages) — checked on Debian **apt**
 
 ### Sum-up
 
