@@ -1,6 +1,8 @@
 #ifndef QUOTIX_H_INCLUDED
 #define QUOTIX_H_INCLUDED
 
+#define LINE_LIMIT 1024
+
 void check_file(const char* filename);
 int count_lines(const char* filename);
 void seed_random(const char* iteration);
