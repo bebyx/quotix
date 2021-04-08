@@ -19,32 +19,37 @@ void check_file(const char* filename)
   }
 }
 
+void check_line(const int line_count, const int char_count)
+{
+  if(char_count >= LINE_LIMIT)
+  {
+    fprintf(stderr, "Error: Line's too long: %d\nExiting...\n", line_count);
+    exit(EXIT_FAILURE);
+  }
+}
+
 int count_lines(const char* filename)
 {
   FILE *fptr;
   fptr = fopen(filename, "r");
-  char c; int count = 0, c_count = 0;
+  char c; int line_count = 0, char_count = 0;
   while ((c = fgetc(fptr)) != EOF)
   {
    if (c == '\n')
    {
-      count++;
-      if(c_count >= LINE_LIMIT)
-      {
-        fprintf(stderr, "Error: Line's too long: %d\nExiting...\n", count);
-        exit(EXIT_FAILURE);
-      }
-      c_count = 0;
+      line_count++;
+      check_line(line_count, char_count);
+      char_count = 0;
    }
    else
    {
-     c_count++;
+     char_count++;
    }
   }
 
   fclose(fptr);
 
-  return count;
+  return line_count;
 }
 
 void seed_random(const char* iteration)
