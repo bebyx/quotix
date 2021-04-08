@@ -64,14 +64,14 @@ void seed_random(const char* iteration)
     srand(time(0)/60/60/24);
 }
 
-void print_random_quote(const char* filename, int lines_count)
+void print_random_quote(const char* filename, int lines_quantity)
 {
   FILE *fptr;
   fptr = fopen(filename, "r");
   int count = 0, line_number;
   char buffer[LINE_LIMIT+1] = "";
 
-  line_number = rand() % lines_count;
+  line_number = rand() % lines_quantity;
   while (fgets(buffer, sizeof(buffer), fptr) != NULL)
   {
     if (count == line_number)

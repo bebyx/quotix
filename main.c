@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 {
 
   char filename[256] = "/etc/quotix/quotes.txt";
-  int lines_count;
+  int lines_quantity;
   char iteration[] = "second";
 
   // Opts handling chunk
@@ -77,11 +77,11 @@ int main(int argc, char const *argv[])
 
   check_file(filename);
 
-  lines_count = count_lines(filename);
+  lines_quantity = count_lines(filename);
 
   seed_random(iteration);
 
-  print_random_quote(filename, lines_count);
+  print_random_quote(filename, lines_quantity);
 
   return 0;
 }
