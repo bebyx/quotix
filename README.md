@@ -20,7 +20,7 @@ sudo apt purge quotix
 
 ### Compile from source
 
-Get the source code from this repo or the latest [release archives](https://github.com/bebyx/quotix/releases/tag/v0.1.0-beta), then compile and install on GNU/Linux:
+Get the source code from this repo or the latest [release archives](https://github.com/bebyx/quotix/releases/), then compile and install on GNU/Linux:
 
 ```bash
 make && sudo make install
