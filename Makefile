@@ -1,5 +1,6 @@
 all:
-	gcc *.c -o qtx
+	mkdir -p target
+	gcc src/*.c -o target/qtx
 
 install:
 	cp ./qtx /usr/bin/qtx
