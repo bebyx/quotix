@@ -17,3 +17,7 @@ uninstall:
 
 clean:
 	rm -r target
+
+check:
+	target/qtx -f assets/quotes.list -i %M
+	
