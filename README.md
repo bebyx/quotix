@@ -4,20 +4,6 @@ Quotix is a **random quote** C program. It runs through a plain text file (LF, o
 
 ## Installation
 
-### Debian
-
-Install Quotix on Debian-based system with the `deb` release.
-
-```bash
-wget https://github.com/bebyx/quotix/releases/download/v0.1.2-beta/qtx_0.1.2_x86_64.deb && sudo apt install ./qtx_0.1.2_x86_64.deb
-```
-
-To uninstall:
-
-```bash
-sudo apt purge quotix
-```
-
 ### Compile from source
 
 Get the source code from this repo or the latest [release archives](https://github.com/bebyx/quotix/releases/), then compile and install on GNU/Linux:
@@ -30,6 +16,14 @@ To uninstall:
 
 ```bash
 sudo make uninstall
+```
+
+Default binary path is `/usr/local/bin/` and default quotes list path is `/usr/local/share/`. You can change it with Makefile variables (`binpath` and `datapath`), for example, full cycle with a changed `datapath`:
+
+```bash
+make datapath=/home/user/.local/share # stick to full path; no slash at the end is recommended
+sudo make install datapath=/home/user/.local/share
+sudo make uninstall datapath=/home/user/.local/share
 ```
 
 ## Flags
@@ -59,7 +53,7 @@ while true; do qtx -f q_file -i %M; sleep 1; done
 Native conky command:
 
 ```bash
-${texeci 600 /usr/bin/qtx -f /home/user/.local/etc/quotix/funny_quotes.txt -i %M }
+${texeci 600 /usr/local/bin/qtx -f /home/user/.local/share/quotix/funny_quotes.list -i %M }
 ```
 
 Also you can use the program for whatever random quote case, e.g., web app:
