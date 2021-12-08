@@ -9,7 +9,7 @@
 int main(int argc, char const *argv[])
 {
 
-  char filename[256] = "/etc/quotix/quotes.txt";
+  char filename[256] = "/usr/local/share/quotix/quotes.list";
   int lines_quantity;
   char iteration[] = "second";
 
