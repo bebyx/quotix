@@ -8,6 +8,7 @@
 void check_file(const char* filename)
 {
   FILE *fptr;
+
   if ((fptr = fopen(filename, "r")) == NULL)
   {
     fprintf(stderr, "File error %d: %s — '%s'\n", errno, strerror(errno), filename);
@@ -38,11 +39,12 @@ void check_content(int lines_quantity) {
 
 int count_lines(const char* filename)
 {
-  FILE *fptr;
-  fptr = filter_material(filename);
+  FILE *stream;
   char c; int line_count = 0, char_count = 0;
 
-  while ((c = fgetc(fptr)) != EOF)
+  // Count all lines
+  stream = filter_material(filename);
+  while ((c = fgetc(stream)) != EOF)
   {
    if (c == '\n')
    {
@@ -56,7 +58,7 @@ int count_lines(const char* filename)
    }
   }
 
-  fclose(fptr);
+  fclose(stream);
 
   return line_count;
 }
@@ -75,21 +77,20 @@ void seed_random(const char* iteration)
 
 void print_random_quote(const char* filename)
 {
-  int lines_quantity = count_lines(filename);
-  check_content(lines_quantity);
-
-
-  FILE *stream;
-//  fptr = fopen(filename, "r");
   int count = 0, line_number;
   char buffer[LINE_LIMIT+1] = "";
+  FILE *stream;
+
+  int lines_quantity = count_lines(filename);
+  check_content(lines_quantity);
 
   line_number = rand() % lines_quantity;
 
   stream = filter_material(filename);
+
+  // Print out random line
   while (fgets(buffer, sizeof(buffer), stream) != NULL)
   {
-    // Print out random line
     if (count == line_number)
     {
       fprintf(stdout, "%s", buffer);
@@ -102,41 +103,39 @@ void print_random_quote(const char* filename)
     }
   }
 
-
   fclose(stream);
 }
 
-FILE *filter_material(const char* filename) {
-  char buffer[LINE_LIMIT+1] = "";
-
+FILE *filter_material(const char* filename)
+{
   FILE *fptr;
-  fptr = fopen(filename, "r");
+  char buffer[LINE_LIMIT+1] = "";
+  FILE *stream;
 
+  // Calculate size of the file
+  fptr = fopen(filename, "r");
   fseek(fptr, 0L, SEEK_END);
-  // calculating the size of the file
-  long int res = ftell(fptr);
-  fprintf(stdout, "Bytes: %li\n", res);
+  long int file_size = ftell(fptr);
   fclose(fptr);
 
-  char filtered_material[res];
-  memset(filtered_material, 0, res*sizeof(char));
+  // Initialize variable-sized string
+  char filtered_material[file_size];
+  memset(filtered_material, 0, file_size*sizeof(char));
 
+  // Filter out commented lines
   fptr = fopen(filename, "r");
-  // Let's filter out commented lines
   while (fgets(buffer, sizeof(buffer), fptr) != NULL)
   {
     if (buffer[0] == '#')
     {
       continue;
     }
-    fprintf(stdout, "%s", buffer);
     strcat(filtered_material, buffer);
   }
-  //fprintf(stdout, "%s", filtered_material);
   fclose(fptr);
 
-  FILE *stream_ptr;
-  stream_ptr = fmemopen(filtered_material, sizeof(filtered_material), "r");
+  // Convert string to stream
+  stream = fmemopen(filtered_material, sizeof(filtered_material), "r");
 
-  return stream_ptr;
+  return stream;
 }
