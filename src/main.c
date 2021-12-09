@@ -65,7 +65,8 @@ int main(int argc, char **argv)
         break;
 
       case '?':
-        fprintf(stderr, "Unknown flag: %c\n", optopt);
+        fprintf(stderr, "Wrong flag: %c\n", optopt);
+        exit(EXIT_FAILURE);
         break;
 
       default:
