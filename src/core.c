@@ -88,8 +88,7 @@ FILE *filter_material(const char* filename)
   fclose(fptr);
 
   // Initialize variable-sized string
-  char filtered_material[file_size];
-  memset(filtered_material, 0, file_size*sizeof(char));
+  char *filtered_material = (char *) malloc(2*file_size*sizeof(char));
 
   // Filter out commented lines
   fptr = fopen(filename, "r");
@@ -104,7 +103,7 @@ FILE *filter_material(const char* filename)
   fclose(fptr);
 
   // Convert string to stream
-  stream = fmemopen(filtered_material, sizeof(filtered_material), "r");
+  stream = fmemopen(filtered_material, strlen(filtered_material), "r");
 
   return stream;
 }
