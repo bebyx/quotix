@@ -4,7 +4,8 @@
 #include <errno.h>
 #include <string.h>
 
-#include "quotix.h"
+#include "core.h"
+#include "checks.h"
 
 int main(int argc, char const *argv[])
 {
