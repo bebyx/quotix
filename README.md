@@ -3,7 +3,7 @@
 [![quotix build status](https://github.com/bebyx/quotix/actions/workflows/c.yml/badge.svg?branch=master)](https://github.com/bebyx/quotix/actions/workflows/c.yml)
 [![license](https://img.shields.io/github/license/bebyx/quotix)](https://github.com/bebyx/quotix/blob/master/LICENSE.txt)
 
-Quotix is a **random quote** C program. It runs through a plain text file (LF, of course, named `quotes.list` by default) and prints out a random line.
+Quotix is a **random quote** C program. It runs through a plain text file (LF, of course, named `quotes.list` by default) and prints out a random line to standard output.
 
 ## Installation
 
@@ -21,7 +21,7 @@ To uninstall:
 sudo make uninstall
 ```
 
-Default binary path is `/usr/local/bin/` and default quotes list path is `/usr/local/share/`. You can change it with Makefile variables (`binpath` and `datapath`), for example, full cycle with a changed `datapath`:
+Default binary path is `/usr/local/bin/` and default quotes list path is `/usr/local/share/`. You can change it with Makefile variables (`binpath` and `datapath`). For example, full cycle with a changed `datapath`:
 
 ```bash
 make datapath=/home/user/.local/share # stick to full path; no slash at the end is recommended
@@ -33,7 +33,7 @@ sudo make uninstall datapath=/home/user/.local/share
 
 * `-f` or `--file` to use the custom name for quote source file
 * `-h` or `--help` to print hints
-* `-i` to change the time iteration (each second by default):
+* `-i` or `--iterate` to change the time iteration (each second by default):
   * format follows GNU `date` utility convention:
     * `%M` for minute
     * `%H` for hour
@@ -72,17 +72,17 @@ While **Fortune** is time proven random quote program, **Quotix** is built indep
 
 ### Ideological:
 
-1. an idea behind: straight aphorism instead of fortune cookies; it's reflected in the names
+1. an idea behind: straight aphorism instead of fortune cookies; it's reflected in the names of both programs
 2. one-liner — minimalist by design; there shan't be recipes or verse!
-3. GPL vs. BSD license (see [cuck licenses article](https://lukesmith.xyz/articles/cucklicenses) by [@lukesmithxyz](https://github.com/lukesmithxyz))
+3. GPL vs. BSD license (see [cuck licenses article](https://lukesmith.xyz/c/why-i-use-the-gpl-and-not-cuck-licenses) by [@lukesmithxyz](https://github.com/lukesmithxyz))
 
 ### Technical:
 
 1. no format complications — just plain text one-liners (1024 character per line limit so far)
+2. comment out any line/quote with `#` at the very beginning of the one
 2. has built-in time iteration — matters when need to print out frequently but change quotes with slower pace
 3. no regex handling, no multifile handling and other fancy stuff — it's not the goal for Quotix
 4. shorter command by default (`qtx`)
-5. at the moment, 8,204 B (1 package) vs. 2,154 kB (3 packages) — checked on Debian **apt**
 
 ### Sum-up
 
