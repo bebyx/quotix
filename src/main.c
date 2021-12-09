@@ -57,7 +57,7 @@ int main(int argc, char const *argv[])
                 strcmp(argv[i], "--help") == 0))
     {
       fprintf(stdout, "%s\n\n%s\n%s\n%s\n%s\n%s\n",
-                      "Quotix (qtx) is a random quote C program. It runs through a plain text file (/etc/quotix/quotes.txt by default) and prints out a random line.",
+                      "Quotix (qtx) is a random quote C program. It runs through a plain text file (/usr/local/share/quotix/quotes.list by default) and prints out a random line.",
                       "Use -f or --file flag to define source file name with quotes.",
                       "Use -i to change the time iteration (each second by default):",
                       "- %M or 'minute'",

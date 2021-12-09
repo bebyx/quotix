@@ -3,7 +3,7 @@
 [![quotix build status](https://github.com/bebyx/quotix/actions/workflows/c.yml/badge.svg?branch=master)](https://github.com/bebyx/quotix/actions/workflows/c.yml)
 [![license](https://img.shields.io/github/license/bebyx/quotix)](https://github.com/bebyx/quotix/blob/master/LICENSE.txt)
 
-Quotix is a **random quote** C program. It runs through a plain text file (LF, of course, named `quotes.txt` by default) and prints out a random line.
+Quotix is a **random quote** C program. It runs through a plain text file (LF, of course, named `quotes.list` by default) and prints out a random line.
 
 ## Installation
 
