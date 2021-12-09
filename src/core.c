@@ -88,7 +88,8 @@ FILE *filter_material(const char* filename)
   fclose(fptr);
 
   // Initialize variable-sized string
-  char *filtered_material = (char *) malloc(2*file_size*sizeof(char));
+  char *filtered_material = (char *) malloc(file_size);
+  filtered_material[0] = '\0';
 
   // Filter out commented lines
   fptr = fopen(filename, "r");
