@@ -6,9 +6,13 @@
 #include "core.h"
 #include "checks.h"
 
+#ifndef DATAPATH
+#define DATAPATH "/usr/local/share/quotix/quotes.list"
+#endif
+
 int main(int argc, char **argv)
 {
-  char filename[256] = "/usr/local/share/quotix/quotes.list";
+  char filename[256] = DATAPATH;
   char iteration[] = "second";
   int c;
 

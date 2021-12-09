@@ -3,8 +3,7 @@ datapath := /usr/local/share
 
 all:
 	mkdir -p target
-	sed -E "/filename/ s|(\x22)\S*(\x22)|\1${datapath}/quotix/quotes.list\2|" -i src/main.c
-	gcc src/*.c -o target/qtx
+	gcc src/*.c -o target/qtx -DDATAPATH=\"${datapath}/quotix/quotes.list\"
 
 install:
 	cp target/qtx ${binpath}/qtx
@@ -20,4 +19,3 @@ clean:
 
 check:
 	target/qtx -f assets/quotes.list -i %M
-	
