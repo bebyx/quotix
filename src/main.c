@@ -1,79 +1,89 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <errno.h>
 #include <string.h>
+#include <getopt.h>
 
 #include "core.h"
 #include "checks.h"
 
-int main(int argc, char const *argv[])
+int main(int argc, char **argv)
 {
-
   char filename[256] = "/usr/local/share/quotix/quotes.list";
   char iteration[] = "second";
+  int c;
 
-  // Opts handling chunk
-  for (size_t i = 1; i < argc; i++)
+  // Opts chunk
+  while (1)
   {
-    if (strcmp(argv[i], "-f") == 0 ||
-        strcmp(argv[i], "--file") == 0)
+    static struct option long_options[] =
     {
-      if (argv[i+1] != NULL)
-      {
-        strcpy(filename, argv[i+1]);
-      }
-      else
-      {
-        fprintf(stderr, "%s\n", "Error: No file name is stated.");
-        exit(EXIT_FAILURE);
-      }
-      i++;
-    }
-    else if (strcmp(argv[i], "-i") == 0)
+      {"file", required_argument, 0, 'f'},
+      {"iterate", required_argument, 0, 'i'},
+      {"help", no_argument, 0, 'h'},
+      {0, 0, 0, 0}
+    };
+
+    int option_index = 0;
+
+    c = getopt_long (argc, argv, "f:i:h",
+                     long_options, &option_index);
+
+    if (c == -1)
+      break;
+
+    switch (c)
     {
-      if (argv[i+1] != NULL)
-      {
-        if (strcmp(argv[i+1], "%M") == 0 ||
-            strcmp(argv[i+1], "minute") == 0)
+      case 'h':
+        fprintf(stdout, "%s\n\n%s\n%s\n%s\n%s\n%s\n",
+                "Quotix (qtx) is a random quote C program. "
+                "It runs through a plain text file "
+                "(/usr/local/share/quotix/quotes.list by default) "
+                "and prints out a random line.",
+                "Use -f or --file flag to define source file name with quotes.",
+                "Use -i or --iterate to change the time iteration (each second by default):",
+                "- %M or 'minute'",
+                "- %H or 'hour'",
+                "- %d or 'day'");
+        return(0);
+
+      case 'f':
+        strcpy(filename, optarg);
+        break;
+
+      case 'i':
+        if (strcmp(optarg, "%M") == 0 ||
+            strcmp(optarg, "minute") == 0)
           strcpy(iteration, "minute");
-        else if (strcmp(argv[i+1], "%H") == 0 ||
-                 strcmp(argv[i+1], "hour") == 0)
+        else if (strcmp(optarg, "%H") == 0 ||
+                 strcmp(optarg, "hour") == 0)
           strcpy(iteration, "hour");
-        else if (strcmp(argv[i+1], "%d") == 0 ||
-                 strcmp(argv[i+1], "day") == 0)
+        else if (strcmp(optarg, "%d") == 0 ||
+                 strcmp(optarg, "day") == 0)
           strcpy(iteration, "day");
         else
-          fprintf(stderr, "%s\n", "Iterator is not understood. Go with default (seconds).");
-        i++;
+          fprintf(stderr, "%s\n", "Iterator is not understood. Going with default (seconds).");
+        break;
+
+      case '?':
+        fprintf(stderr, "Unknown flag: %c\n", optopt);
+        break;
+
+      default:
+        abort();
       }
-      else
-      {
-        fprintf(stderr, "%s\n", "Error: No iterator is stated.");
-        exit(EXIT_FAILURE);
-      }
-    }
-    else if (argc == 2 &&
-               (strcmp(argv[i], "-h") == 0 ||
-                strcmp(argv[i], "--help") == 0))
-    {
-      fprintf(stdout, "%s\n\n%s\n%s\n%s\n%s\n%s\n",
-                      "Quotix (qtx) is a random quote C program. It runs through a plain text file (/usr/local/share/quotix/quotes.list by default) and prints out a random line.",
-                      "Use -f or --file flag to define source file name with quotes.",
-                      "Use -i to change the time iteration (each second by default):",
-                      "- %M or 'minute'",
-                      "- %H or 'hour'",
-                      "- %d or 'day'");
-      exit(0);
-    }
-    else
-    {
-      fprintf(stderr, "Wrong flag: '%s'\n", argv[i]);
-      exit(EXIT_FAILURE);
-    }
   }
 
-  //Program's functions
+  // Print error, if unknown arguments are used
+  if (optind < argc)
+  {
+    fprintf (stderr, "Unknown input: ");
+    while (optind < argc)
+      fprintf (stderr, "%s ", argv[optind++]);
+    fprintf(stderr, "\n");
+    exit(EXIT_FAILURE);
+  }
+
+  //Program functions
 
   check_file(filename);
 
