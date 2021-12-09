@@ -28,6 +28,14 @@ void check_line(const int line_count, const int char_count)
   }
 }
 
+void check_content(int lines_quantity) {
+  if (lines_quantity == 0)
+  {
+    fprintf(stderr, "No available quotes in file\n");
+    exit(EXIT_FAILURE);
+  }
+}
+
 int count_lines(const char* filename)
 {
   FILE *fptr;
@@ -68,6 +76,7 @@ void seed_random(const char* iteration)
 void print_random_quote(const char* filename)
 {
   int lines_quantity = count_lines(filename);
+  check_content(lines_quantity);
 
 
   FILE *stream;
