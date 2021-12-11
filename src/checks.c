@@ -5,7 +5,7 @@
 
 #include "checks.h"
 
-void check_file(const char* filename)
+void check_file(const char *filename)
 {
   FILE *fptr;
 
