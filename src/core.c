@@ -17,16 +17,16 @@ int count_lines(const char *filename)
   // Count all available lines
   while ((c = fgetc(stream)) != EOF)
   {
-   if (c == '\n')
-   {
+    if (c == '\n')
+    {
       line_count++;
       check_line(line_count, char_count);
       char_count = 0;
-   }
-   else
-   {
-     char_count++;
-   }
+    }
+    else
+    {
+      char_count++;
+    }
   }
 
   fclose(stream);
