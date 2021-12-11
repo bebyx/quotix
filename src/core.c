@@ -6,13 +6,15 @@
 #include "core.h"
 #include "checks.h"
 
-int count_lines(const char* filename)
+int count_lines(const char *filename)
 {
   FILE *stream;
+  char *filtered_material;
   char c; int line_count = 0, char_count = 0;
 
-  // Count all lines
-  stream = filter_material(filename);
+  filtered_material = filter_material(filename);
+  stream = streamify(filtered_material);
+  // Count all available lines
   while ((c = fgetc(stream)) != EOF)
   {
    if (c == '\n')
@@ -28,11 +30,12 @@ int count_lines(const char* filename)
   }
 
   fclose(stream);
+  free(filtered_material);
 
   return line_count;
 }
 
-void seed_random(const char* iteration)
+void seed_random(const char *iteration)
 {
   if (strcmp(iteration, "second") == 0)
     srand(time(0));
@@ -44,19 +47,20 @@ void seed_random(const char* iteration)
     srand(time(0)/60/60/24);
 }
 
-void print_random_quote(const char* filename)
+void print_random_quote(const char *filename)
 {
-  int count = 0, line_number;
+  int count = 0, line_number, lines_quantity;
   char buffer[LINE_LIMIT+1] = "";
   FILE *stream;
+  char *filtered_material;
 
-  int lines_quantity = count_lines(filename);
+  lines_quantity = count_lines(filename);
   check_content(lines_quantity);
 
   line_number = rand() % lines_quantity;
 
-  stream = filter_material(filename);
-
+  filtered_material = filter_material(filename);
+  stream = streamify(filtered_material);
   // Print out random line
   while (fgets(buffer, sizeof(buffer), stream) != NULL)
   {
@@ -73,13 +77,13 @@ void print_random_quote(const char* filename)
   }
 
   fclose(stream);
+  free(filtered_material);
 }
 
-FILE *filter_material(const char* filename)
+char *filter_material(const char *filename)
 {
   FILE *fptr;
   char buffer[LINE_LIMIT+1] = "";
-  FILE *stream;
 
   // Calculate size of the file
   fptr = fopen(filename, "r");
@@ -103,8 +107,13 @@ FILE *filter_material(const char* filename)
   }
   fclose(fptr);
 
-  // Convert string to stream
-  stream = fmemopen(filtered_material, strlen(filtered_material), "r");
+  return filtered_material;
+}
+
+// Open stream from a string
+FILE *streamify(char *string) {
+  FILE *stream;
+  stream = fmemopen(string, strlen(string), "r");
 
   return stream;
 }
