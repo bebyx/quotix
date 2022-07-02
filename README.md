@@ -28,6 +28,13 @@ make datapath=/home/user/.local/share # stick to full path; no slash at the end 
 sudo make install datapath=/home/user/.local/share
 sudo make uninstall datapath=/home/user/.local/share
 ```
+### Arch
+
+Run from the project folder:
+
+```bash
+makepkg -si
+```
 
 ## Flags
 
@@ -51,7 +58,7 @@ sudo make uninstall datapath=/home/user/.local/share
 Like this bash loop:
 
 ```bash
-while true; do qtx -f q_file -i %M; sleep 1; done
+while true; do qtx -i %M; sleep 1; done
 ```
 Native conky command:
 
@@ -74,15 +81,15 @@ While **Fortune** is time proven random quote program, **Quotix** is built indep
 
 1. an idea behind: straight aphorism instead of fortune cookies; it's reflected in the names of both programs
 2. one-liner — minimalist by design; there shan't be recipes or verse!
-3. GPL vs. BSD license (see [cuck licenses article](https://lukesmith.xyz/c/why-i-use-the-gpl-and-not-cuck-licenses) by [@lukesmithxyz](https://github.com/lukesmithxyz))
+3. GPL vs. BSD license (see [cuck licenses article](https://lukesmith.xyz/articles/why-i-use-the-gpl-and-not-cuck-licenses/) by [@lukesmithxyz](https://github.com/lukesmithxyz))
 
 ### Technical:
 
-1. no format complications — just plain text one-liners (1024 character per line limit so far)
+1. no format complications — just plain text one-liners (1024 ASCII characters per line limit so far)
 2. comment out any line/quote with `#` at the very beginning of the one
-2. has built-in time iteration — matters when need to print out frequently but change quotes with slower pace
-3. no regex handling, no multifile handling and other fancy stuff — it's not the goal for Quotix
-4. shorter command by default (`qtx`)
+3. has built-in time iteration — matters when need to print out frequently but change quotes with slower pace
+4. no regex handling, no multifile handling and other fancy stuff — it's not the goal for Quotix
+5. shorter command by default (`qtx`)
 
 ### Sum-up
 
