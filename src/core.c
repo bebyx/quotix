@@ -10,7 +10,8 @@ int count_lines(const char *filename)
 {
   FILE *stream;
   char *filtered_material;
-  char c; int line_count = 0, char_count = 0;
+  int line_count = 0, char_count = 0;
+  char c;
 
   filtered_material = filter_material(filename);
   stream = streamify(filtered_material);
@@ -49,18 +50,17 @@ void seed_random(const char *iteration)
 
 void print_random_quote(const char *filename)
 {
-  int count = 0, line_number, lines_quantity;
+  int count = 0;
   char buffer[LINE_LIMIT+1] = "";
-  FILE *stream;
-  char *filtered_material;
 
-  lines_quantity = count_lines(filename);
+  int lines_quantity = count_lines(filename);
   check_content(lines_quantity);
 
-  line_number = rand() % lines_quantity;
+  int line_number = rand() % lines_quantity;
 
-  filtered_material = filter_material(filename);
-  stream = streamify(filtered_material);
+  char *filtered_material = filter_material(filename);
+  
+  FILE *stream = streamify(filtered_material);
   // Print out random line
   while (fgets(buffer, sizeof(buffer), stream) != NULL)
   {
@@ -111,9 +111,9 @@ char *filter_material(const char *filename)
 }
 
 // Open stream from a string
-FILE *streamify(char *string) {
-  FILE *stream;
-  stream = fmemopen(string, strlen(string), "r");
+FILE *streamify(char *string)
+{
+  FILE *stream = fmemopen(string, strlen(string), "r");
 
   return stream;
 }

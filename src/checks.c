@@ -22,14 +22,15 @@ void check_file(const char *filename)
 
 void check_line(const int line_count, const int char_count)
 {
-  if(char_count >= LINE_LIMIT)
+  if (char_count >= LINE_LIMIT)
   {
     fprintf(stderr, "Error: Line's too long: %d\nExiting...\n", line_count);
     exit(EXIT_FAILURE);
   }
 }
 
-void check_content(int lines_quantity) {
+void check_content(int lines_quantity)
+{
   if (lines_quantity == 0)
   {
     fprintf(stderr, "No available quotes in file\n");
