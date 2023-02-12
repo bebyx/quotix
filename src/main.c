@@ -55,7 +55,10 @@ int main(int argc, char **argv)
         break;
 
       case 'i':
-        if (strcmp(optarg, "%M") == 0 ||
+	if (strcmp(optarg, "%s") == 0 ||
+            strcmp(optarg, "second") == 0)
+          strcpy(iteration, "second");
+        else if (strcmp(optarg, "%M") == 0 ||
             strcmp(optarg, "minute") == 0)
           strcpy(iteration, "minute");
         else if (strcmp(optarg, "%H") == 0 ||
