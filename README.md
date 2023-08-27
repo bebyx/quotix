@@ -40,12 +40,14 @@ makepkg -si
 
 * `-f` or `--file` to use the custom name for quote source file
 * `-h` or `--help` to print hints
-* `-i` or `--iterate` to change the time iteration (each second by default):
+* `-i` or `--iterate` to change the time iteration:
   * format follows GNU `date` utility convention:
+    * `%s` for second (default)
     * `%M` for minute
     * `%H` for hour
     * `%d` for day
   * as well as human readable format:
+    * `"second"` for second (default)
     * `"minute"` for minute
     * `"hour"` for hour
     * `"day"` for day
