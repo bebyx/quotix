@@ -1,7 +1,7 @@
 # Maintainer: Artem Bebik <echo YXJ0ZW1AYmVieXguY28udWEK | base64 -d>
 
 pkgname='quotix'
-pkgver='0.2.1'
+pkgver='0.2.2'
 pkgrel=1
 
 pkgdesc="Quotix (qtx) is a suckless random quote C program, prints out a random line from a plain text file."

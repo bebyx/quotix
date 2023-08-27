@@ -10,7 +10,8 @@ int count_lines(const char *filename)
 {
   FILE *stream;
   char *filtered_material;
-  char c; int line_count = 0, char_count = 0;
+  int line_count = 0, char_count = 0;
+  char c;
 
   filtered_material = filter_material(filename);
   stream = streamify(filtered_material);
@@ -49,18 +50,17 @@ void seed_random(const char *iteration)
 
 void print_random_quote(const char *filename)
 {
-  int count = 0, line_number, lines_quantity;
+  int count = 0;
   char buffer[LINE_LIMIT+1] = "";
-  FILE *stream;
-  char *filtered_material;
 
-  lines_quantity = count_lines(filename);
+  int lines_quantity = count_lines(filename);
   check_content(lines_quantity);
 
-  line_number = rand() % lines_quantity;
+  int line_number = rand() % lines_quantity;
 
-  filtered_material = filter_material(filename);
-  stream = streamify(filtered_material);
+  char *filtered_material = filter_material(filename);
+  
+  FILE *stream = streamify(filtered_material);
   // Print out random line
   while (fgets(buffer, sizeof(buffer), stream) != NULL)
   {
@@ -85,35 +85,46 @@ char *filter_material(const char *filename)
   FILE *fptr;
   char buffer[LINE_LIMIT+1] = "";
 
-  // Calculate size of the file
-  fptr = fopen(filename, "r");
-  fseek(fptr, 0L, SEEK_END);
-  long int file_size = ftell(fptr);
-  fclose(fptr);
-
   // Initialize variable-sized string
-  char *filtered_material = (char *) malloc(file_size);
-  filtered_material[0] = '\0';
+  char *filtered_material = NULL;
+  size_t filtered_size = 0;
 
   // Filter out commented lines
   fptr = fopen(filename, "r");
   while (fgets(buffer, sizeof(buffer), fptr) != NULL)
   {
-    if (buffer[0] == '#')
+    if (buffer[0] != '#') // Filter out commented lines
     {
-      continue;
+      size_t line_len = strlen(buffer);
+
+      // Allocate or reallocate memory for the filtered material
+      char *temp = realloc(filtered_material, filtered_size + line_len + 1); // +1 for null terminator
+      if (temp == NULL)
+      {
+        perror("Memory allocation failed");
+        free(filtered_material);
+        exit(EXIT_FAILURE);
+      }
+
+      filtered_material = temp;
+      strcpy(filtered_material + filtered_size, buffer);
+      filtered_size += line_len;
     }
-    strcat(filtered_material, buffer);
   }
   fclose(fptr);
+
+  if (filtered_material != NULL)
+  {
+    filtered_material[filtered_size] = '\0'; // Null-terminate the filtered material
+  }
 
   return filtered_material;
 }
 
 // Open stream from a string
-FILE *streamify(char *string) {
-  FILE *stream;
-  stream = fmemopen(string, strlen(string), "r");
+FILE *streamify(char *string)
+{
+  FILE *stream = fmemopen(string, strlen(string), "r");
 
   return stream;
 }
